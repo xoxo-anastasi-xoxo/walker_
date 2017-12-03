@@ -1,0 +1,9 @@
+.user_form {
+  z-index: 100;
+  margin: 20px;
+  border-radius: 20px;
+  position: absolute;
+  width: 210px;
+  background: radial-gradient(at top right, #2196F3, white);
+  border: 1px #2196F3 solid;
+}

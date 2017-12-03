@@ -1,0 +1,27 @@
+const publicEvents = [{
+    X: 55,
+    Y: 55,
+    name: "Cinema Tomorrow",
+    description: "That new movie was so mush-awaited! It must be cool! Let's go!",
+    logo: "",
+    startTime: "09.12.2017 9:00",
+    duration: 3,
+    // нужна единица измерения времени
+    price: 150,
+    // нужна валюта
+    owner: {}, // а может только id?
+    groups: [],
+    members: []
+  }];
+
+export default function account(state = {currentUser:currentUser}, action) {
+  // switch (action.type) {
+  //   case UPDATE_ACCOUNT:
+  //     return {
+  //       ...state,
+  //       ...action.payload
+  //     };
+  //   default:
+  return state;
+  // }
+}
