@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import "./LogIn.css"
 import SocialNetworkList from "../../components/LogIn/SocialNetworkList/SocialNetworkList"
 import {connect} from 'react-redux'
-import $ from "jquery";
+import {setCookie, deleteCookie, getCookie} from '../../cookie'
 
 class LogIn extends Component {
   handleLogin() {
@@ -60,6 +60,53 @@ class LogIn extends Component {
     //   })
   }
 
+  componentWillMount() {
+    let urlapi = require('url'),
+      url = urlapi.parse(window.location.toString());
+
+//     http://localhost:3000/account/#access_token=846e4e822135d46a7993970c06b0c0d116ce5f977ba20a0041a3c60f7480d99572b226bbd5bbe103adafe&expires_in=86400&user_id=184087942
+//       http:
+//     localhost
+//     3000
+//     /account/
+//     null
+// #access_token=846e4e822135d46a7993970c06b0c0d116ce5f977ba20a0041a3c60f7480d99572b226bbd5bbe103adafe
+// &expires_in=86400
+// &user_id=184087942
+//     console.log(
+//       url.href + '\n' +           // the full URL
+//       url.protocol + '\n' +       // http:
+//       url.hostname + '\n' +       // site.com
+//       url.port + '\n' +           // 81
+//       url.pathname + '\n' +       // /path/page
+//       url.search + '\n' +         // ?a=1&b=2
+//       url.hash                    // #hash
+//     );
+    // console.log(url.hash.replace("#","").split('&'));
+
+    if (url.hash !== null) {
+      alert("updateCookie");
+      url.hash.replace("#","").split('&').forEach(
+        el => {
+          if (el.split('=')[0] !== "expires_in")
+          setCookie(el.split('=')[0],
+            el.split('=')[1],
+            {path:"/",domain:"localhost:3000", expires:"Mon, 26 Aug 2019 00:00:00 GMT"});
+        });
+    }
+
+
+    // this.setCookie("access_token=", url.hash);
+    console.log("cookie:");
+    console.log(document.cookie);
+    if (url.hash !== null)
+      window.location.href = "/account/184087942";
+
+    console.log("new");
+    console.log(window.location.href);
+  }
+
+
   render() {
     //return <a href={this.uri}>mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm</a>;
     // return(<div>
@@ -83,6 +130,7 @@ class LogIn extends Component {
     //   {error ? <p className='error'> {error}. <br /> Попробуйте еще раз.</p> : ''}
     // </div>
 
+    console.log(document.cookie);
     return (
       <div className="login">
         <h1 className="login__header">Hi,&nbsp;I'm&nbsp;Walker!</h1>

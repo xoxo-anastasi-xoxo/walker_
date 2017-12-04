@@ -17,16 +17,13 @@
     <title>Walker</title>
 </head>
 <body>
-
-<div id="root"></div>
-<!--<script src="//vk.com/js/api/openapi.js"></script>-->
-<!--&lt;!&ndash;<script src="/static/bundle.js"></script>&ndash;&gt;-->
-<!--<script language="javascript">-->
- <!--VK.init({-->
-   <!--apiId:   6278299,-->
-   <!--status: true-->
- <!--});-->
+<!--<script src="https://vk.com/js/api/openapi.js?150" type="text/javascript"></script>-->
+<!--<script type="text/javascript">-->
+  <!--VK.init({-->
+    <!--apiId: 6278299-->
+  <!--});-->
 <!--</script>-->
+
 <div id="vk_api_transport"></div>
 <script type="text/javascript">
   window.vkAsyncInit = function() {
@@ -37,12 +34,15 @@
   };
 
   setTimeout(function() {
-    var el = document.createElement("script");
+    let el = document.createElement("script");
     el.type = "text/javascript";
     el.src = "https://vk.com/js/api/openapi.js?150";
     el.async = true;
     document.getElementById("vk_api_transport").appendChild(el);
   }, 0);
 </script>
+
+
+<div id="root"></div>
 </body>
 </html>
