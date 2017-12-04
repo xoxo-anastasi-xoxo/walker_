@@ -12,7 +12,9 @@ import Home from "../pages/Home";
 import Event from '../pages/Event'
 
 class App extends Component {
-
+componentWillMount() {
+  this.props.loadCookie();
+}
 
   render() {
     return (
@@ -40,5 +42,9 @@ class App extends Component {
 const mapStateToProps = state => ({
   user: state.user
 });
-
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = dispatch => ({
+  loadCookie: () => dispatch({
+    type: 'LOAD_COOKIE'
+  })
+});
+export default connect(mapStateToProps, mapDispatchToProps)(App);

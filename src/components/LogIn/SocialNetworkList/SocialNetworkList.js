@@ -8,13 +8,15 @@ class SocialNetworkList extends Component {
     return (
       <div className="social-network-list">
         {this.props.list.map((key, index) => {
-          return <SocialNetwork key={index} index={index}/>;
+          if (index !== 0)
+            return <SocialNetwork key={index} index={index}/>;
         })}
       </div>
     );
 
   }
 }
+
 const mapStateToProps = state => ({
   list: state.login.socialNetworks
 });
