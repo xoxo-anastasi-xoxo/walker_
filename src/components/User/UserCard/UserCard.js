@@ -15,7 +15,7 @@ class UserCard extends Component {
           <UserMainInfo/>
           <SocialNetwork className="user_card__item__button"
             key={this.props.entryButton.key} index={this.props.entryButton.key}
-            to={this.props.entryButton.to} name={this.props.entryButton.name}
+            to={this.props.entryButton.to + this.props.id} name={this.props.entryButton.name}
             src={this.props.entryButton.src}
           />
         </div>
@@ -26,7 +26,8 @@ class UserCard extends Component {
 
 
 const mapStateToProps = state => ({
-  entryButton: state.login.entryButton
+  entryButton: state.login.entryButton,
+  id: state.user.id
 });
 //
 // const mapDispatchToProps = dispatch => ({
