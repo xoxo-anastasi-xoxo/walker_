@@ -8,8 +8,7 @@ class SocialNetworkList extends Component {
     return (
       <div className="social-network-list">
         {this.props.list.map((key, index) => {
-          if (index !== 0)
-            return <SocialNetwork key={index} index={index}/>;
+            return <SocialNetwork key={index} index={index} to={key.to} name={key.name} src={key.src}/>;
         })}
       </div>
     );

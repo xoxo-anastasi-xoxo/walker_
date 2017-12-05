@@ -3,49 +3,63 @@ import "./LogIn.css"
 import SocialNetworkList from "../../components/LogIn/SocialNetworkList/SocialNetworkList"
 import UserCard from "../../components/User/UserCard/UserCard"
 import {connect} from 'react-redux'
-import {setCookie, deleteCookie, getCookie} from '../../cookie'
+import {setCookie, getCookie} from '../../cookie'
 import {loadInfo} from "../../reducers/user"
 
 class LogIn extends Component {
 
-  componentDidMount() {
-    console.log("d login");
-    console.log(this.props.user);
-    this.props.loadInfoNow.call(this, {id: this.props.user.id, access_token: this.props.user.access_token});
-  }
-
-  componentWillMount() {
+  updateCookie() {
     let urlapi = require('url'),
       url = urlapi.parse(window.location.toString());
 
-    if (url.hash !== null) {
-      alert("updateCookie");
-      url.hash.replace("#", "").split('&').forEach(
-        el => {
-          if (el.split('=')[0] !== "expires_in")
-            setCookie(el.split('=')[0],
-              el.split('=')[1],
-              {path: "/", domain: "localhost:3000", expires: "Mon, 26 Aug 2019 00:00:00 GMT"});
-        });
-    }
-    console.log("cookie:");
-    console.log(document.cookie);
-    if (url.hash !== null)
-      window.location.href = "/account/184087942";
+    url.hash.replace("#", "").split('&').forEach(
+      el => {
+        if (el.split('=')[0] !== "expires_in") {
 
-    console.log("new");
-    console.log(window.location.href);
+          setCookie(el.split('=')[0],
+            el.split('=')[1],
+            {
+              expires: "Mon, 26 Aug 2019 00:00:00 GMT"
+            });
+        }
+      });
+
+    // console.log("cookie:");
+    // console.log(document.cookie);
+  }
+
+  componentDidMount() {
+    setTimeout((function(){
+      if (!this.props.user.valid)
+      this.props.deleteCookie();
+    }).bind(this), 1500)
+    // console.log("d login");
+    // console.log(this.props.user);
+    // this.props.loadInfoNow.call(this, {id: this.props.user.id, access_token: this.props.user.access_token});
+  }
+
+  componentWillMount() {
+    if (window.location.hash !== "") {
+      // загрузаить куки + в инфу о пользователе тоже и сменить страницу
+      this.updateCookie();
+      this.props.loadCookie();
+      this.props.loadInfoNow.call(this, {id: getCookie("user_id"), access_token: getCookie("access_token")});
+        window.location.href = "/account/" + getCookie("user_id");
+    }
   }
 
 
   render() {
 
+    console.log("cookie при рендере:");
     console.log(document.cookie);
+
+    console.log(this.props.user.access_token);
     return (
       <div className="login">
         <h1 className="login__header">Hi,&nbsp;I'm&nbsp;Walker!</h1>
         <p className="login__tagline">Let's&nbsp;go&nbsp;with&nbsp;me!</p>
-        {getCookie("access_token") ? <UserCard/> : <SocialNetworkList/>}
+        {this.props.user.valid ? <UserCard/> : <SocialNetworkList/>}
       </div>
     );
   }
@@ -57,20 +71,14 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  createAccount: (username) => dispatch({
-    type: 'LOGIN_SUCCESS',
-    payload: username
-  }),
-  accountError: () => dispatch({
-    type: 'LOGIN_FAIL',
-    error: true,
-    payload: new Error('Ошибка авторизации')
-  }),
-  loginRequest: () => dispatch({
-    type: 'LOGIN_REQUEST'
-  }),
   loadInfoNow: (data) =>
-    loadInfo.call(this, dispatch, data)
+    loadInfo.call(this, dispatch, data),
+  loadCookie: () => dispatch({
+    type: 'LOAD_COOKIE'
+  }),
+  deleteCookie: () => dispatch({
+    type: 'LOGIN_FAIL'
+  })
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LogIn);

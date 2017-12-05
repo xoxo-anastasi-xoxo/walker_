@@ -14,23 +14,23 @@ class SocialNetwork extends React.Component {
   render() {
     return (
       <a key={this.props.index}
-         href={this.props.login.socialNetworks[this.props.index].to}
+         href={this.props.to}
       // href={this.uri}
       >
         <button className="button" type="button">
-          <img className="button__image" alt={this.props.login.socialNetworks[this.props.index].name} src={this.props.login.socialNetworks[this.props.index].src} />
+          <img className="button__image" alt={this.props.name} src={this.props.src} />
         </button>
       </a>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  login: state.login
-});
+// const mapStateToProps = state => ({
+//   login: state.login
+// });
 //
 // const mapDispatchToProps = dispatch => ({
 //   createAccount: (account) => dispatch(updateFirebaseAction('accounts', account))
 // });
 
-export default connect(mapStateToProps)(SocialNetwork);
+export default SocialNetwork;

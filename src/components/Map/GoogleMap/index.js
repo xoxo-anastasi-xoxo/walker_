@@ -68,12 +68,13 @@ export class GoogleMap extends React.PureComponent {
     );
   };
 
-
+  _onClick(obj){ console.log(obj.x, obj.y, obj.lat, obj.lng, obj.event);}
 
   render() {
     return (
       <MapWrapper>
         <GoogleMapReact
+          onClick={this._onClick}
           defaultZoom={MAP.defaultZoom}
           defaultCenter={MAP.defaultCenter}
           options={MAP.options}

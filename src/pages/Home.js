@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import  MapContainer from '../components/Map/MapContainer'
 import  GoogleMap from '../components/Map/GoogleMap'
 import './Home.css'
 
 import UserForm from "../components/User/UserForm/UserForm"
-import {setCookie, deleteCookie, getCookie} from '../cookie'
 
 class Home extends Component {
 
@@ -58,11 +56,14 @@ class Home extends Component {
 
   render() {
 
+    console.log("cookie:");
+    console.log(document.cookie);
+
     return (
       <div className="map">
+        <UserForm/>
         <GoogleMap/>
-        {/*<MapContainer/>*/}
-        {/*<UserForm/>*/}
+
       </div>
     );
   }

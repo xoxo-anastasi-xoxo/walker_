@@ -4,6 +4,8 @@ import "./UserMainInfo.css"
 
 class UserMainInfo extends Component {
   render() {
+    // console.log("user");
+    // console.log(this.props.user);
     return(
       <div className="main-info">
         <p className="main-info__name">{this.props.user.surname} {this.props.user.name}</p>

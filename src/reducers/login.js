@@ -1,9 +1,4 @@
-const socialNetworks = [ {
-  key: 0,
-  name: "Log in",
-  to: "http://localhost:3000/account/",
-  src: "img/twitter.svg"
-}, {
+const socialNetworks = [{
   key: 1,
   name: "VK",
   to: "https://oauth.vk.com/authorize?client_id="
@@ -28,8 +23,14 @@ const socialNetworks = [ {
   src: "img/facebook.svg"
 }];
 
+const entryButton = { key: 0,
+  name: "Войти на сайт",
+  to: "http://localhost:3000/account/",
+  src: "img/entry.svg"};
+
 export default function login(state = {
-  socialNetworks: socialNetworks
+  socialNetworks: socialNetworks,
+  entryButton: entryButton
 }, action) {
 
   return state

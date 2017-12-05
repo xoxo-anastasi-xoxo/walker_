@@ -5,8 +5,9 @@ const MarkerCounter = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 36px;
-  height: 36px;
+  box-sizing: border-box;
+  width: 40px;
+  height: 40px;
   padding: 8px;
   margin-left: -10px;
   text-align: center;

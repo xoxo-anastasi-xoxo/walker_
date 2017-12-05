@@ -7,13 +7,18 @@ import {
   Switch
 } from 'react-router-dom';
 import LogIn from "../pages/LogIn/LogIn";
-import CreateEvent from '../pages/CreateEvent'
 import Home from "../pages/Home";
-import Event from '../pages/Event'
+import {setCookie, getCookie} from '../cookie'
+import {loadInfo} from "../reducers/user"
+
 
 class App extends Component {
 componentWillMount() {
-  this.props.loadCookie();
+  if(document.cookie) {
+    this.props.loadCookie();
+
+    this.props.loadInfoNow.call(this, {id: getCookie("user_id"), access_token: getCookie("access_token")});
+  }
 }
 
   render() {
@@ -26,11 +31,6 @@ componentWillMount() {
               path='/account/'
               component={Home}
             />
-            {/*<Route*/}
-              {/*path='/account/:accountId/create-event/:eventId'*/}
-              {/*component={CreateEvent}*/}
-            {/*/>*/}
-            {/*<Route path='/account/:accountId/event/:eventId' component={Event}/>*/}
           </Switch>
         </div>
       </Router>
@@ -43,6 +43,8 @@ const mapStateToProps = state => ({
   user: state.user
 });
 const mapDispatchToProps = dispatch => ({
+  loadInfoNow: (data) =>
+    loadInfo.call(this, dispatch, data),
   loadCookie: () => dispatch({
     type: 'LOAD_COOKIE'
   })

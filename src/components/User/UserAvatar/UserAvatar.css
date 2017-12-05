@@ -5,5 +5,6 @@
   border-radius: 13px;
 }
 .avatar-container {
+  margin: 0;
   position: relative;
 }
