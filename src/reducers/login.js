@@ -3,7 +3,7 @@ const socialNetworks = [{
   name: "VK",
   to: "https://oauth.vk.com/authorize?client_id="
   + 6278299 + "&display=popup&redirect_uri="
-  + "http://localhost:3000/"
+  + "https://nkwalker.herokuapp.com/"
   + "&scope=offline,friends,photos&response_type=token&v=5.69",
   src: "img/vk.svg"
 }, {
