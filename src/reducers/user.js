@@ -4,6 +4,7 @@ import {deleteCookie, getCookie} from '../cookie'
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const LOAD_COOKIE = 'LOAD_COOKIE';
+export const LOAD_FRIEND = 'LOAD_FRIEND';
 
 const currentUser = {
   valid: false,
@@ -25,6 +26,10 @@ const currentUser = {
 
 export default function user(state = currentUser, action) {
   switch (action.type) {
+    case LOAD_FRIEND:
+      console.log("list:");
+      console.log( action.list);
+      return {...state, friendList: action.list};
     case LOAD_COOKIE:
       return {...state, access_token: getCookie("access_token"), id: getCookie("user_id")};
 
@@ -74,6 +79,16 @@ export const loadInfo = (dispatch, data) => {
       console.log("s");
       return dispatch({type: LOGIN_SUCCESS, info: r.response[0]})
     }
+  });
+  VK.Api.call('friends.getAppUsers', {}, function (r) {
+    console.log("response");
+    console.log(r.response);
+    VK.Api.call('users.get', {
+      user_ids: r.response,
+      fields: 'bdate,photo_200,sex,city'
+    }, function (r) {
+      return dispatch({type: LOAD_FRIEND, list: r.response})
+    });
   });
 };
 

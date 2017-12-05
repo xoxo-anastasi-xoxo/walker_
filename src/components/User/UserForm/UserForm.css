@@ -1,9 +1,8 @@
 .user_form {
   z-index: 100;
-  margin: 20px;
-  border-radius: 20px;
+  height: 99.3vh;
+  margin: 0;
   position: absolute;
-  width: 210px;
-  background: radial-gradient(at top right, #2196F3, white);
-  border: 1px #2196F3 solid;
+  width: 260px;
+  background: rgba(255, 255, 255, 0.7);
 }
