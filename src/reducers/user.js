@@ -35,7 +35,7 @@ export default function user(state = currentUser, action) {
 
     case LOGIN_SUCCESS:
       let newState = {...state};
-
+      if (!state.access_token) return state;
       newState.birthday = action.info.bdate;
       newState.name = action.info.first_name;
       newState.surname = action.info.last_name;
