@@ -11,15 +11,27 @@ class UserCard extends Component {
     return (
       <div className="user_card">
         <div className="user_card__item">
-        <UserAvatar ava={this.props.user.ava}/>
+          <UserAvatar ava={this.props.user.ava}/>
         </div>
         <div className="user_card__item">
           <UserMainInfo/>
-          <SocialNetwork className="user_card__item__button"
-            key={this.props.entryButton.key} index={this.props.entryButton.key}
-            to={this.props.entryButton.to + this.props.user.id} name={this.props.entryButton.name}
-            src={this.props.entryButton.src}
-          />
+          <div className="user_card__buttons">
+            <SocialNetwork className="user_card__item__button"
+                           key={this.props.entryButton.key} index={this.props.entryButton.key}
+                           to={this.props.entryButton.to + this.props.user.id} name={this.props.entryButton.name}
+                           src={this.props.entryButton.src}
+            />
+            <div onClick={
+              () =>  this.props.exitNow()
+            }>
+              <SocialNetwork className="user_card__item__button"
+                             key={this.props.exitButton.key} index={this.props.exitButton.key}
+                             to={this.props.exitButton.to} name={this.props.exitButton.name}
+                             src={this.props.exitButton.src}
+              />
+            </div>
+
+          </div>
         </div>
       </div>
     );
@@ -29,11 +41,14 @@ class UserCard extends Component {
 
 const mapStateToProps = state => ({
   entryButton: state.login.entryButton,
+  exitButton: state.login.exitButton,
   user: state.user
 });
-//
-// const mapDispatchToProps = dispatch => ({
-//   createAccount: (account) => dispatch(updateFirebaseAction('accounts', account))
-// });
 
-export default connect(mapStateToProps)(UserCard);
+const mapDispatchToProps = dispatch => ({
+  exitNow: () => dispatch({
+    type: 'LOGIN_FAIL'
+  })
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserCard);

@@ -1,27 +1,49 @@
-const publicEvents = [{
-    X: 55,
-    Y: 55,
-    name: "Cinema Tomorrow",
-    description: "That new movie was so mush-awaited! It must be cool! Let's go!",
-    logo: "",
-    startTime: "09.12.2017 9:00",
-    duration: 3,
-    // нужна единица измерения времени
-    price: 150,
-    // нужна валюта
-    owner: {}, // а может только id?
-    groups: [],
-    members: []
-  }];
+export const GET_POSITION = 'GET_POSITION';
+export const CREATE_EVENT = 'CREATE_EVENT';
 
-export default function account(state = {currentUser:currentUser}, action) {
-  // switch (action.type) {
-  //   case UPDATE_ACCOUNT:
-  //     return {
-  //       ...state,
-  //       ...action.payload
-  //     };
-  //   default:
-  return state;
-  // }
+
+const publicEvents = [{
+  X: 55,
+  Y: 55,
+  name: "Cinema Tomorrow",
+  description: "That new movie was so mush-awaited! It must be cool! Let's go!",
+  logo: "",
+  startTime: "09.12.2017 9:00",
+  duration: 3,
+  // нужна единица измерения времени
+  price: 150,
+  // нужна валюта
+  owner: {}, // а может только id?
+  groups: [],
+  members: []
+}];
+
+const creatingEvent = {
+  lat: undefined,
+  lng: undefined,
+  name: undefined,
+  description: undefined,
+  date: undefined
+};
+
+export default function account(state = {
+  lat: 60.814305, lng: 47.051773, creatingEvent: {...creatingEvent}
+}, action) {
+  switch (action.type) {
+    case CREATE_EVENT:
+      alert(action.data.lat)
+      let newState ={...state};
+      newState.creatingEvent.lat =  action.data.lat;
+      newState.creatingEvent.lng =  action.data.lng;
+
+      return newState;
+    case GET_POSITION:
+      return {
+        ...state,
+        lat: action.data.latitude,
+        lng: action.data.longitude
+      };
+    default:
+      return state;
+  }
 }

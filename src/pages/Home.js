@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import  GoogleMap from '../components/Map/GoogleMap'
 import './Home.css'
-
+import  Filter from '../components/Filter/FilterList/FilferList'
 import UserForm from "../components/User/UserForm/UserForm"
+import CreateEvent from "../components/Event/CreateEvent/CreateEvent"
+
 
 class Home extends Component {
 
@@ -55,15 +57,17 @@ class Home extends Component {
       }
 
   render() {
-
+ // console.log(getCurrentPosition());
     console.log("cookie:");
     console.log(document.cookie);
 
     return (
       <div className="map">
         <UserForm/>
+        <CreateEvent/>
         <GoogleMap/>
 
+{/*<Filter/>*/}
       </div>
     );
   }

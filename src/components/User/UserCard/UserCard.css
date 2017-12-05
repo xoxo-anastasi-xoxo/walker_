@@ -5,6 +5,9 @@
   justify-content: center;
   margin-top: 10px;
 }
+.user_card__buttons {
+  display: flex;
+}
 .user_card__item {
   box-sizing: content-box;
   margin: 0;

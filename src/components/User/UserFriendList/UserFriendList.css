@@ -1,6 +1,13 @@
 .list {
   width: 260px;
 }
+.list__elem {
+  display: flex;
+  align-items: center;
+}
+.list__elem__name {
+  margin: 2px;
+}
 .list__img {
   width: 90px;
 }

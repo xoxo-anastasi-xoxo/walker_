@@ -1,14 +1,20 @@
 import React, {Component} from "react"
 
-import "./Filter.css"
+import "./FilterList.css"
 
-class Filter extends Component {
+class FilterList extends Component {
+
   render() {
     return (
       <div className="filter-list">
+        <ul class="nav">
+          {
+
+          }
+      </ul>
       </div>
     );
   }
 }
 
-export default Filter;
+export default FilterList;

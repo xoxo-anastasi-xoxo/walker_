@@ -5,6 +5,8 @@ import UserCard from "../../components/User/UserCard/UserCard"
 import {connect} from 'react-redux'
 import {setCookie, getCookie} from '../../cookie'
 import {loadInfo} from "../../reducers/user"
+import Geolocation from "react-geolocation";
+
 
 class LogIn extends Component {
 
@@ -75,6 +77,10 @@ const mapDispatchToProps = dispatch => ({
     loadInfo.call(this, dispatch, data),
   loadCookie: () => dispatch({
     type: 'LOAD_COOKIE'
+  }),
+  loadPosition: (data) => dispatch({
+    type: 'GET_POSITION',
+    data: data
   }),
   deleteCookie: () => dispatch({
     type: 'LOGIN_FAIL'
