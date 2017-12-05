@@ -26,7 +26,6 @@ options
 */
 export function setCookie(name, value, options) {
   options = options || {};
-
   let expires = options.expires;
 
   if (typeof expires === "number" && expires) {
@@ -49,7 +48,6 @@ export function setCookie(name, value, options) {
       updatedCookie += "=" + propValue;
     }
   }
-
   document.cookie = updatedCookie;
 }
 
