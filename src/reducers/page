@@ -7,7 +7,7 @@ const publicEvents = [{
   Y: 55,
   name: "Cinema Tomorrow",
   description: "That new movie was so mush-awaited! It must be cool! Let's go!",
-  logo: "",
+  ava: "",
   startTime: "09.12.2017 9:00",
   duration: 3,
   // нужна единица измерения времени

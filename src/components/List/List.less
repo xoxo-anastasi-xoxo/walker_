@@ -1,0 +1,39 @@
+@import "../../shared";
+
+.list {
+  margin-top: 10px;
+  color: @main_color;
+
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    //border-top: 1px solid @main_color;
+    border-bottom: 3px solid @main_color;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+
+
+    &__text {
+      margin: 0 10px;
+    }
+    &__img {
+      margin: 0 10px;
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  &__item {
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+&__img {
+  width: 80px;
+}
+  }
+}

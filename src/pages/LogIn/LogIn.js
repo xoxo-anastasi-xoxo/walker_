@@ -16,7 +16,7 @@ class LogIn extends Component {
 
     url.hash.replace("#", "").split('&').forEach(
       el => {
-        if (el.split('=')[0] !== "expires_in") {
+        if (el.split('=')[0] === "access_token" || el.split('=')[0] === "user_id") {
 
           setCookie(el.split('=')[0],
             el.split('=')[1],

@@ -6,6 +6,7 @@ import UserForm from "../components/User/UserForm/UserForm"
 import CreateEvent from "../components/Event/CreateEvent/CreateEvent"
 
 
+
 class Home extends Component {
 
   // setCookie(name, value, options) {
@@ -64,9 +65,8 @@ class Home extends Component {
     return (
       <div className="map">
         <UserForm/>
-        <CreateEvent/>
+        {/*<CreateEvent/>*/}
         <GoogleMap/>
-
 {/*<Filter/>*/}
       </div>
     );

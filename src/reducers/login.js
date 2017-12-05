@@ -26,14 +26,12 @@ const socialNetworks = [{
 
 const entryButton = { key: 0,
   name: "Вход",
-  to: "https://nkwalker.herokuapp.com/account/",
-  // to: "http://localhost:3000/account/",
+  to: "/account/",
   src: "img/entry.svg"};
 
 const exitButton = { key: -1,
   name: "Выход",
-  to: "https://nkwalker.herokuapp.com/",
-  // to: "http://localhost:3000/",
+  to: "/",
   src: "img/exit.svg"};
 
 export default function login(state = {

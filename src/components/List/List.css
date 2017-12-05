@@ -1,0 +1,32 @@
+.list {
+  margin-top: 10px;
+  color: #2196F3;
+}
+.list__title {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 3px solid #2196F3;
+}
+.list__title:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.list__title__text {
+  margin: 0 10px;
+}
+.list__title__img {
+  margin: 0 10px;
+  width: 30px;
+  height: 30px;
+}
+.list__item {
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.list__item:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.list__item__img {
+  width: 80px;
+}
