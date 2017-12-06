@@ -15,7 +15,6 @@ class UserForm extends Component {
         <UserAvatar ava={this.props.user.ava}/>
         <UserMainInfo/>
 
-        <div className="user_form__lists">
         <List title="Друзья" list={this.props.user.friendList.map((elem) => {
           let name = elem.first_name + " " + elem.last_name;
           return {name: name, ava: elem.photo_200}
@@ -23,7 +22,6 @@ class UserForm extends Component {
         <List title="События" list={this.props.user.eventList.map((elem) => {
           return {name: elem.name, ava: elem.logo}
         })}/>
-        </div>
       </div>
     );
   }

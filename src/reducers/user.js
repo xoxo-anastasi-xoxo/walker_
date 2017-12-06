@@ -8,6 +8,8 @@ export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const LOAD_COOKIE = 'LOAD_COOKIE';
 export const LOAD_FRIEND = 'LOAD_FRIEND';
 export const CREATE_EVENT = 'CREATE_EVENT';
+export const PREVENT_CREATING = 'PREVENT_CREATING';
+
 
 const currentUser = {
   valid: false,
@@ -75,45 +77,63 @@ export default function user(state = currentUser, action) {
   console.log("user redusor");
   switch (action.type) {
     case LOGIN_SUCCESS:
-    let newState = {...state};
-    if (!state.access_token) return state;
-    newState.birthday = action.info.bdate;
-    newState.name = action.info.first_name;
-    newState.surname = action.info.last_name;
-    newState.ava = action.info.photo_200;
-    newState.valid = true;
+      let newState = {...state};
+      if (!state.access_token) return state;
+      newState.birthday = action.info.bdate;
+      newState.name = action.info.first_name;
+      newState.surname = action.info.last_name;
+      newState.ava = action.info.photo_200;
+      newState.valid = true;
 
-    // console.log("action.info");
-    // console.log(action.info);
-    console.log("я закончиваю сс");
+      // console.log("action.info");
+      // console.log(action.info);
+      console.log("я закончиваю сс");
 
-    return newState;
+      return newState;
 
     case START_CREATE_EVENT:
       newState = {...state};
       newState.creatingEvent.lat = action.data.lat;
       newState.creatingEvent.lng = action.data.lng;
       newState.isCreating = true;
-console.log(newState);
+      console.log(newState);
 
       return newState;
 
+    case PREVENT_CREATING:
+      return {
+        ...state, creatingEvent: {
+          logo: undefined,
+          lat: undefined,
+          lng: undefined,
+          name: undefined,
+          description: undefined,
+          date: new Date()
+        },
+        isCreating: false
+      };
+
     case CREATE_EVENT:
       newState = {...state};
-      newState.creatingEvent.name = action.data.name;
+      console.log(newState);
+      console.log(action.data);
+
+      newState.creatingEvent.name
+        = action.data.name;
       newState.creatingEvent.description = action.data.description;
       newState.creatingEvent.lng = action.data.lng;
       newState.creatingEvent.lat = action.data.lat;
       newState.creatingEvent.logo = action.data.logo;
 
 
-      newState.eventList = [...state.eventList, {...newState.creatingEvent,  mode: "",
-        participants: []}];
-      console.log( newState.eventList);
+      newState.eventList = [...state.eventList, {
+        ...newState.creatingEvent, mode: "",
+        participants: []
+      }];
+      console.log(newState.eventList);
       return newState;
 
     case UPDATE_DATE:
-      alert(state.creatingEvent.date)
       newState = {...state};
       newState.creatingEvent.date = action.data;
       return newState;
@@ -125,7 +145,6 @@ console.log(newState);
 
     case LOAD_COOKIE:
       return {...state, access_token: getCookie("access_token"), id: getCookie("user_id")};
-
 
 
     case LOGIN_FAIL:

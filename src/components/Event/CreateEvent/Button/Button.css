@@ -12,3 +12,7 @@
   border: 1px solid transparent;
   border-radius: 6px;
 }
+
+.Button:hover {
+  background-color: rgba(33, 150, 200, 1);
+}

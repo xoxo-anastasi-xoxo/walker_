@@ -8,6 +8,17 @@
   background: rgba(255, 255, 255, 0.9);
   top: 30px;
 }
+.create-event-form__exit {
+  opacity: 0.5;
+  border-radius: 100%;
+  width: 30px;
+  position: inherit;
+  right: 20px;
+  top: 20px;
+}
+.create-event-form__exit:hover {
+  opacity: 0.9;
+}
 .create-event-form__info {
   display: flex;
   justify-content: flex-start;

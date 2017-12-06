@@ -54,6 +54,7 @@ this.props.create({
 });
 
     this.formClear();
+    this.props.exit();
   };
 
   handleInputChange = (event) => {
@@ -66,6 +67,7 @@ this.props.create({
     console.log("state:");
     console.log(this.state);
     return (<div className="create-event-form">
+      <img onClick={()=> this.props.exit()} className="create-event-form__exit" alt="Закрыть" src="/img/exit.svg"/>
       <h2>Создать событие</h2>
       <div className="create-event-form__info">
         <div className="create-event-form__info__img" onClick={()=>this.setState({image:"/img/events/RoundIcons_FreeSet-" + (Math.floor(Math.random() * (60 + 1))) + ".svg"})}>
@@ -75,9 +77,9 @@ this.props.create({
         <div className="create-event-form__info__cd">
           <div className="create-event-form__info__coo">
             <p>lat:</p>
-            <Coordinates>{this.props.lat}</Coordinates>
+            <Coordinates>{this.props.lat.toFixed(5)}</Coordinates>
             <p>lng:</p>
-              <Coordinates>{this.props.lng}</Coordinates>
+              <Coordinates>{this.props.lng.toFixed(5)}</Coordinates>
           </div>
           <DateForm/>
         </div>
@@ -105,6 +107,9 @@ const mapDispatchToProps = dispatch => ({
   create: (data) => dispatch({
     type: 'CREATE_EVENT',
     data: data
+  }),
+  exit: () => dispatch({
+    type: 'PREVENT_CREATING'
   })
 });
 
