@@ -2,7 +2,6 @@ import React, {Component} from "react"
 import UserAvatar from "../UserAvatar/UserAvatar"
 import UserMainInfo from "../UserMainInfo/UserMainInfo"
 import {connect} from 'react-redux'
-import UserFriendList from '../UserFriendList/UserFriendList'
 import List from '../../List/List'
 
 import "./UserForm.css"
@@ -15,8 +14,8 @@ class UserForm extends Component {
       <div className="user_form">
         <UserAvatar ava={this.props.user.ava}/>
         <UserMainInfo/>
-        {/*<UserFriendList/>*/}
 
+        <div className="user_form__lists">
         <List title="Друзья" list={this.props.user.friendList.map((elem) => {
           let name = elem.first_name + " " + elem.last_name;
           return {name: name, ava: elem.photo_200}
@@ -24,6 +23,7 @@ class UserForm extends Component {
         <List title="События" list={this.props.user.eventList.map((elem) => {
           return {name: elem.name, ava: elem.logo}
         })}/>
+        </div>
       </div>
     );
   }

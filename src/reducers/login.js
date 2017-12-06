@@ -10,17 +10,17 @@ const socialNetworks = [{
 }, {
   key: 2,
   name: "Twitter",
-  to: "http://localhost:3000/account/12345",
+  to: "/",
   src: "img/twitter.svg"
 }, {
   key: 3,
   name: "Google",
-  to: "http://localhost:3000/account/12345",
+  to: "/",
   src: "img/google.svg"
 }, {
   key: 4,
   name: "Facebook",
-  to: "http://localhost:3000/account/12345",
+  to: "/",
   src: "img/facebook.svg"
 }];
 

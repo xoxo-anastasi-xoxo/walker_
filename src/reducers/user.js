@@ -1,6 +1,7 @@
 /* global VK */
 import {deleteCookie, getCookie} from '../cookie'
 
+export const START_CREATE_EVENT = 'START_CREATE_EVENT';
 export const UPDATE_DATE = 'UPDATE_DATE';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
@@ -66,12 +67,37 @@ const currentUser = {
     name: undefined,
     description: undefined,
     date: new Date()
-  }
+  },
+  isCreating: false
 };
 
 export default function user(state = currentUser, action) {
   console.log("user redusor");
   switch (action.type) {
+    case LOGIN_SUCCESS:
+    let newState = {...state};
+    if (!state.access_token) return state;
+    newState.birthday = action.info.bdate;
+    newState.name = action.info.first_name;
+    newState.surname = action.info.last_name;
+    newState.ava = action.info.photo_200;
+    newState.valid = true;
+
+    // console.log("action.info");
+    // console.log(action.info);
+    console.log("я закончиваю сс");
+
+    return newState;
+
+    case START_CREATE_EVENT:
+      newState = {...state};
+      newState.creatingEvent.lat = action.data.lat;
+      newState.creatingEvent.lng = action.data.lng;
+      newState.isCreating = true;
+console.log(newState);
+
+      return newState;
+
     case CREATE_EVENT:
       newState = {...state};
       newState.creatingEvent.name = action.data.name;
@@ -85,7 +111,6 @@ export default function user(state = currentUser, action) {
         participants: []}];
       console.log( newState.eventList);
       return newState;
-
 
     case UPDATE_DATE:
       alert(state.creatingEvent.date)
@@ -101,20 +126,7 @@ export default function user(state = currentUser, action) {
     case LOAD_COOKIE:
       return {...state, access_token: getCookie("access_token"), id: getCookie("user_id")};
 
-    case LOGIN_SUCCESS:
-      let newState = {...state};
-      if (!state.access_token) return state;
-      newState.birthday = action.info.bdate;
-      newState.name = action.info.first_name;
-      newState.surname = action.info.last_name;
-      newState.ava = action.info.photo_200;
-      newState.valid = true;
 
-      // console.log("action.info");
-      // console.log(action.info);
-      console.log("я закончиваю сс");
-
-      return newState;
 
     case LOGIN_FAIL:
       console.log("login fail");

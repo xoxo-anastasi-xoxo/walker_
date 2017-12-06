@@ -69,11 +69,6 @@ export class GoogleMap extends React.PureComponent {
     );
   };
 
-  _onClick(obj) {
-    // this.props.createEvent.call(obj, {lat: obj.lat, lng: obj.lng});
-    console.log(obj.x, obj.y, obj.lat, obj.lng, obj.event);
-  }
-
   render() {
     return (
       <MapWrapper>
@@ -121,7 +116,7 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = dispatch => ({
   createEvent: (data) => dispatch({
-    type: 'CREATE_EVENT',
+    type: 'START_CREATE_EVENT',
     data: data
   })
 });

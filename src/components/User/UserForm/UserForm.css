@@ -6,3 +6,7 @@
   width: 260px;
   background: rgba(255, 255, 255, 0.7);
 }
+.user_form__lists {
+  overflow: scroll;
+  height: 62vh;
+}

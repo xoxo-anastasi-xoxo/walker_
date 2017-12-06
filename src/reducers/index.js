@@ -5,7 +5,6 @@ import page from './page'
 
 const rootReducer = combineReducers({
   user,
-  page,
   login
 });
 
