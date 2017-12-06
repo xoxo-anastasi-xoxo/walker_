@@ -1,10 +1,11 @@
 .avatar {
-  width: 200px;
+  width: 100%;
   height: auto;
-  margin-top: 5px;
-  border-radius: 13px;
+  position: relative;
+  border-radius: 100%;
 }
 .avatar-container {
-  margin: 0;
+  margin: 5px auto;
+  width: 80%;
   position: relative;
 }

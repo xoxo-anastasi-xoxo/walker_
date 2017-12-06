@@ -1,9 +1,15 @@
 /* global VK */
 import {deleteCookie, getCookie} from '../cookie'
 
+export const START_CREATE_EVENT = 'START_CREATE_EVENT';
+export const UPDATE_DATE = 'UPDATE_DATE';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const LOAD_COOKIE = 'LOAD_COOKIE';
+export const LOAD_FRIEND = 'LOAD_FRIEND';
+export const CREATE_EVENT = 'CREATE_EVENT';
+export const PREVENT_CREATING = 'PREVENT_CREATING';
+
 
 const currentUser = {
   valid: false,
@@ -18,19 +24,61 @@ const currentUser = {
   surname: "",
   birthday: "",
   groupList: [],
-  eventList: [],
-  friendList: []
-
+  eventList: [{
+    lat: 55,
+    lng: 55,
+    date: undefined,
+    name: "Научная конференция \"Яркость!\"",
+    logo: "/img/events/RoundIcons_FreeSet-60.svg",
+    description: "",
+    mode: "",
+    participants: []
+  }, {
+    lat: 56,
+    lng: 55,
+    date: undefined,
+    name: "Велосипедная прогулка",
+    logo: "/img/events/RoundIcons_FreeSet-52.svg",
+    description: "",
+    mode: "",
+    participants: []
+  }, {
+    lat: 55,
+    lng: 57,
+    date: undefined,
+    name: "МК по живописи",
+    logo: "/img/events/RoundIcons_FreeSet-7.svg",
+    description: "",
+    mode: "",
+    participants: []
+  }, {
+    lat: 54,
+    lng: 55,
+    date: undefined,
+    name: "Университетский матч",
+    logo: "/img/events/RoundIcons_FreeSet-8.svg",
+    description: "",
+    mode: "",
+    participants: []
+  }],
+  friendList: [],
+  creatingEvent: {
+    logo: undefined,
+    lat: undefined,
+    lng: undefined,
+    name: undefined,
+    description: undefined,
+    date: new Date()
+  },
+  isCreating: false
 };
 
 export default function user(state = currentUser, action) {
+  console.log("user redusor");
   switch (action.type) {
-    case LOAD_COOKIE:
-      return {...state, access_token: getCookie("access_token"), id: getCookie("user_id")};
-
     case LOGIN_SUCCESS:
       let newState = {...state};
-
+      if (!state.access_token) return state;
       newState.birthday = action.info.bdate;
       newState.name = action.info.first_name;
       newState.surname = action.info.last_name;
@@ -42,6 +90,62 @@ export default function user(state = currentUser, action) {
       console.log("я закончиваю сс");
 
       return newState;
+
+    case START_CREATE_EVENT:
+      newState = {...state};
+      newState.creatingEvent.lat = action.data.lat;
+      newState.creatingEvent.lng = action.data.lng;
+      newState.isCreating = true;
+      console.log(newState);
+
+      return newState;
+
+    case PREVENT_CREATING:
+      return {
+        ...state, creatingEvent: {
+          logo: undefined,
+          lat: undefined,
+          lng: undefined,
+          name: undefined,
+          description: undefined,
+          date: new Date()
+        },
+        isCreating: false
+      };
+
+    case CREATE_EVENT:
+      newState = {...state};
+      console.log(newState);
+      console.log(action.data);
+
+      newState.creatingEvent.name
+        = action.data.name;
+      newState.creatingEvent.description = action.data.description;
+      newState.creatingEvent.lng = action.data.lng;
+      newState.creatingEvent.lat = action.data.lat;
+      newState.creatingEvent.logo = action.data.logo;
+
+
+      newState.eventList = [...state.eventList, {
+        ...newState.creatingEvent, mode: "",
+        participants: []
+      }];
+      console.log(newState.eventList);
+      return newState;
+
+    case UPDATE_DATE:
+      newState = {...state};
+      newState.creatingEvent.date = action.data;
+      return newState;
+
+    case LOAD_FRIEND:
+      console.log("list:");
+      console.log(action.list);
+      return {...state, friendList: action.list};
+
+    case LOAD_COOKIE:
+      return {...state, access_token: getCookie("access_token"), id: getCookie("user_id")};
+
 
     case LOGIN_FAIL:
       console.log("login fail");
@@ -74,6 +178,16 @@ export const loadInfo = (dispatch, data) => {
       console.log("s");
       return dispatch({type: LOGIN_SUCCESS, info: r.response[0]})
     }
+  });
+  VK.Api.call('friends.getAppUsers', {}, function (r) {
+    console.log("response");
+    console.log(r.response);
+    VK.Api.call('users.get', {
+      user_ids: r.response,
+      fields: 'bdate,photo_200,sex,city'
+    }, function (r) {
+      return dispatch({type: LOAD_FRIEND, list: r.response})
+    });
   });
 };
 

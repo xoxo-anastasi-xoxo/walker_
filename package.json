@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "classnames": "^2.2.5",
     "google-map-react": "^0.25.0",
     "google-maps-react": "^1.1.2",
     "heroku-cli": "^6.14.39",
@@ -13,10 +14,14 @@
     "points-cluster": "^0.1.4",
     "prop-types": "^15.6.0",
     "react": "^16.1.0",
+    "react-dates": "^15.3.0",
+    "react-day-picker": "^7.0.5",
     "react-dom": "^16.1.1",
+    "react-geolocation": "^1.0.3",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.17",
+    "react-times": "^2.2.8",
     "redux": "^3.7.2",
     "styled-components": "^2.2.4"
   },

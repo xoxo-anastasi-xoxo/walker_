@@ -1,0 +1,42 @@
+.create-event-form {
+  //box-sizing: content-box;
+  height: 500px;
+  width: 520px;
+  position: absolute;
+  z-index: 100;
+  //margin-left: 48vw;
+  left: calc(50vw - 9px);
+  border-radius: 10%;
+  background: rgba(256, 256, 256, 0.9);
+  top: 30px;
+
+  &__exit {
+    opacity: 0.5;
+    border-radius: 100%;
+    width: 30px;
+    position: inherit;
+    right: 20px;
+    top: 20px;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+  &__info {
+    display: flex;
+    justify-content: flex-start;
+
+    &__coo{
+      display: flex;
+    }
+    &__img {
+      margin: 0;
+      width: 200px;
+
+    }
+    &__cd {
+      padding-top: 25px;
+      box-sizing: border-box;
+    }
+  }
+}

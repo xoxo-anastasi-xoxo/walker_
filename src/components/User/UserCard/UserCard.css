@@ -5,9 +5,13 @@
   justify-content: center;
   margin-top: 10px;
 }
+.user_card__buttons {
+  display: flex;
+}
 .user_card__item {
   box-sizing: content-box;
-  margin: 0 0 0 15px;
+  margin: 0;
+  width: 200px;
 }
 .user_card__item__button {
   background-color: white;
