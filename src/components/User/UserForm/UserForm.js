@@ -21,6 +21,9 @@ class UserForm extends Component {
           let name = elem.first_name + " " + elem.last_name;
           return {name: name, ava: elem.photo_200}
         })}/>
+        <List title="События" list={this.props.user.eventList.map((elem) => {
+          return {name: elem.name, ava: elem.logo}
+        })}/>
       </div>
     );
   }

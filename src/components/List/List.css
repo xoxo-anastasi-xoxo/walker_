@@ -27,6 +27,10 @@
 .list__item:hover {
   background-color: rgba(0, 0, 0, 0.05);
 }
+.list__item__name {
+  width: 180px;
+  padding: 3px;
+}
 .list__item__img {
   width: 80px;
 }

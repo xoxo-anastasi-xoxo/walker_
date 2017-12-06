@@ -19,7 +19,43 @@ const currentUser = {
   surname: "",
   birthday: "",
   groupList: [],
-  eventList: [],
+  eventList: [{
+    lat: 55,
+    lng: 55,
+    data: undefined,
+    name: "Научная конференция \"Яркость!\"",
+    logo:"/img/events/RoundIcons_FreeSet-60.svg",
+    description: "",
+    mode: "",
+    participants: []
+  }, {
+      lat: 56,
+      lng: 55,
+    data: undefined,
+      name: "Велосипедная прогулка",
+      logo:"/img/events/RoundIcons_FreeSet-52.svg",
+      description: "",
+      mode: "",
+      participants: []
+    }, {
+    lat: 55,
+    lng: 57,
+    data: undefined,
+    name: "МК по живописи",
+    logo:"/img/events/RoundIcons_FreeSet-7.svg",
+    description: "",
+    mode: "",
+    participants: []
+  }, {
+    lat: 54,
+    lng: 55,
+    data: undefined,
+    name: "Университетский матч",
+    logo:"/img/events/RoundIcons_FreeSet-8.svg",
+    description: "",
+    mode: "",
+    participants: []
+  }],
   friendList: []
 
 };
@@ -28,7 +64,7 @@ export default function user(state = currentUser, action) {
   switch (action.type) {
     case LOAD_FRIEND:
       console.log("list:");
-      console.log( action.list);
+      console.log(action.list);
       return {...state, friendList: action.list};
     case LOAD_COOKIE:
       return {...state, access_token: getCookie("access_token"), id: getCookie("user_id")};
