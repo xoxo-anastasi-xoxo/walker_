@@ -4,41 +4,38 @@ import Button from './Button/Button';
 import FormField from "./FormField/FormField";
 import FormText from "./FormText/FormText";
 import Form from "./Form/Form";
+import Coordinates from "./Coordinates/Coordinates";
+import DateForm from "./Date/DateForm";
+import {connect} from 'react-redux'
 
 import './CreateEvent.css'
+import UserAvatar from "../../User/UserAvatar/UserAvatar";
 
 const validateRequire = value => !value;
 
-export default class CreateEvent extends React.Component {
+class CreateEvent extends React.Component {
   constructor(props) {
     super(props);
 
+    let image = "/img/events/RoundIcons_FreeSet-" + (Math.floor(Math.random() * (60 + 1))) + ".svg";
     this.state = {
       title: '',
       description: '',
-      data: ''
+      image: image,
+      lat: props.lat,
+      lng: props.lng
     };
   }
 
   formClear() {
     this.setState({
       title: '',
-      description: '',
-      data: ''
+      description: ''
     });
   }
 
   validationsForm() {
-    let status = true;
-
-    Object.keys(this.state).forEach(item => {
-      if(validateRequire(this.state[item])) {
-        status = false;
-        return false;
-      }
-    });
-
-    return status;
+   return this.state.title;
   }
 
   handleSubmit = (event) => {
@@ -48,7 +45,13 @@ export default class CreateEvent extends React.Component {
       return;
     }
 
-    this.props.handleSubmit({...this.state, account: this.props.accountId });
+this.props.create({
+  name: this.state.title,
+  logo: this.state.image,
+  lat: this.state.lat,
+  lng: this.state.lng,
+  description: this.state.description
+});
 
     this.formClear();
   };
@@ -60,23 +63,49 @@ export default class CreateEvent extends React.Component {
   };
 
   render() {
-    return <div className="create-event-form">
+    console.log("state:");
+    console.log(this.state);
+    return (<div className="create-event-form">
       <h2>Создать событие</h2>
+      <div className="create-event-form__info">
+        <div className="create-event-form__info__img" onClick={()=>this.setState({image:"/img/events/RoundIcons_FreeSet-" + (Math.floor(Math.random() * (60 + 1))) + ".svg"})}>
+          <UserAvatar className="create-event-form__info__img" ava={this.state.image}/>
+        </div>
+
+        <div className="create-event-form__info__cd">
+          <div className="create-event-form__info__coo">
+            <p>lat:</p>
+            <Coordinates>{this.props.lat}</Coordinates>
+            <p>lng:</p>
+              <Coordinates>{this.props.lng}</Coordinates>
+          </div>
+          <DateForm/>
+        </div>
+
+      </div>
+
       <Form onSubmit={this.handleSubmit}>
         <FormField label='Название' name='title'>
-          <FormText value={this.state.title} name='title' onChange={this.handleInputChange} />
+          <FormText value={this.state.title} name='title' onChange={this.handleInputChange}/>
         </FormField>
 
         <FormField label='Описание' name='description'>
-          <FormText value={this.state.description} name='description' onChange={this.handleInputChange} />
+          <FormText value={this.state.description} name='description' onChange={this.handleInputChange}/>
         </FormField>
 
-        <FormField label='Дата' name='data'>
-          <FormText value={this.state.data} name='data' onChange={this.handleInputChange} />
-        </FormField>
-        <br />
-        <Button type='submit'>Создать!</Button>
+
+        <br/>
+        <Button type='submit'>😄 Создать!</Button>
       </Form>
-    </div>
+    </div>);
   }
-}
+  }
+
+const mapDispatchToProps = dispatch => ({
+  create: (data) => dispatch({
+    type: 'CREATE_EVENT',
+    data: data
+  })
+});
+
+export default connect(undefined, mapDispatchToProps)(CreateEvent);

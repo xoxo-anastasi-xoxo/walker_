@@ -1,10 +1,12 @@
 /* global VK */
 import {deleteCookie, getCookie} from '../cookie'
 
+export const UPDATE_DATE = 'UPDATE_DATE';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const LOAD_COOKIE = 'LOAD_COOKIE';
 export const LOAD_FRIEND = 'LOAD_FRIEND';
+export const CREATE_EVENT = 'CREATE_EVENT';
 
 const currentUser = {
   valid: false,
@@ -22,50 +24,80 @@ const currentUser = {
   eventList: [{
     lat: 55,
     lng: 55,
-    data: undefined,
+    date: undefined,
     name: "Научная конференция \"Яркость!\"",
-    logo:"/img/events/RoundIcons_FreeSet-60.svg",
+    logo: "/img/events/RoundIcons_FreeSet-60.svg",
     description: "",
     mode: "",
     participants: []
   }, {
-      lat: 56,
-      lng: 55,
-    data: undefined,
-      name: "Велосипедная прогулка",
-      logo:"/img/events/RoundIcons_FreeSet-52.svg",
-      description: "",
-      mode: "",
-      participants: []
-    }, {
+    lat: 56,
+    lng: 55,
+    date: undefined,
+    name: "Велосипедная прогулка",
+    logo: "/img/events/RoundIcons_FreeSet-52.svg",
+    description: "",
+    mode: "",
+    participants: []
+  }, {
     lat: 55,
     lng: 57,
-    data: undefined,
+    date: undefined,
     name: "МК по живописи",
-    logo:"/img/events/RoundIcons_FreeSet-7.svg",
+    logo: "/img/events/RoundIcons_FreeSet-7.svg",
     description: "",
     mode: "",
     participants: []
   }, {
     lat: 54,
     lng: 55,
-    data: undefined,
+    date: undefined,
     name: "Университетский матч",
-    logo:"/img/events/RoundIcons_FreeSet-8.svg",
+    logo: "/img/events/RoundIcons_FreeSet-8.svg",
     description: "",
     mode: "",
     participants: []
   }],
-  friendList: []
-
+  friendList: [],
+  creatingEvent: {
+    logo: undefined,
+    lat: undefined,
+    lng: undefined,
+    name: undefined,
+    description: undefined,
+    date: new Date()
+  }
 };
 
 export default function user(state = currentUser, action) {
+  console.log("user redusor");
   switch (action.type) {
+    case CREATE_EVENT:
+      newState = {...state};
+      newState.creatingEvent.name = action.data.name;
+      newState.creatingEvent.description = action.data.description;
+      newState.creatingEvent.lng = action.data.lng;
+      newState.creatingEvent.lat = action.data.lat;
+      newState.creatingEvent.logo = action.data.logo;
+
+
+      newState.eventList = [...state.eventList, {...newState.creatingEvent,  mode: "",
+        participants: []}];
+      console.log( newState.eventList);
+      return newState;
+
+
+    case UPDATE_DATE:
+      alert(state.creatingEvent.date)
+      newState = {...state};
+      newState.creatingEvent.date = action.data;
+      return newState;
+
     case LOAD_FRIEND:
       console.log("list:");
       console.log(action.list);
       return {...state, friendList: action.list};
+
     case LOAD_COOKIE:
       return {...state, access_token: getCookie("access_token"), id: getCookie("user_id")};
 

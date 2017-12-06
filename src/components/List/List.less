@@ -8,9 +8,14 @@
     display: flex;
     justify-content: space-between;
     //border-top: 1px solid @main_color;
-    border-bottom: 3px solid @main_color;
+    border-bottom: 3px solid rgba(33, 150, 243, 0.3);
     &:hover {
       background-color: rgba(0, 0, 0, 0.05);
+      border-bottom: 3px solid rgba(33, 150, 243, 0.9);
+    }
+
+    &:hover &__img {
+      opacity: 0.9;
     }
 
     &__text {
@@ -20,6 +25,7 @@
       margin: 0 10px;
       width: 30px;
       height: 30px;
+      opacity: 0.2;
     }
   }
 

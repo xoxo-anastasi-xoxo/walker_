@@ -1,4 +1,3 @@
-export const GET_POSITION = 'GET_POSITION';
 export const CREATE_EVENT = 'CREATE_EVENT';
 
 
@@ -18,17 +17,11 @@ const publicEvents = [{
   members: []
 }];
 
-const creatingEvent = {
-  lat: undefined,
-  lng: undefined,
-  name: undefined,
-  description: undefined,
-  date: undefined
-};
 
-export default function account(state = {
-  lat: 60.814305, lng: 47.051773, creatingEvent: {...creatingEvent}
+export default function page(state = {
+  lat: 60.814305, lng: 47.051773
 }, action) {
+  console.log("page redusor");
   switch (action.type) {
     case CREATE_EVENT:
       alert(action.data.lat)
@@ -37,12 +30,6 @@ export default function account(state = {
       newState.creatingEvent.lng =  action.data.lng;
 
       return newState;
-    case GET_POSITION:
-      return {
-        ...state,
-        lat: action.data.latitude,
-        lng: action.data.longitude
-      };
     default:
       return state;
   }

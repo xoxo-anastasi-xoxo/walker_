@@ -1,10 +1,30 @@
 .create-event-form {
-  width: 500px;
-  height: 400px;
+  //box-sizing: content-box;
+  height: 500px;
+  width: 520px;
   position: absolute;
   z-index: 100;
-  left: 25%;
+  //margin-left: 48vw;
+  left: calc(50vw - 9px);
   border-radius: 10%;
   background: rgba(256, 256, 256, 0.9);
   top: 30px;
+
+  &__info {
+    display: flex;
+    justify-content: flex-start;
+
+    &__coo{
+      display: flex;
+    }
+    &__img {
+      margin: 0;
+      width: 200px;
+
+    }
+    &__cd {
+      padding-top: 25px;
+      box-sizing: border-box;
+    }
+  }
 }

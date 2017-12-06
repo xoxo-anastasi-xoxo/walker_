@@ -39,6 +39,6 @@ export default function login(state = {
   entryButton: entryButton,
   exitButton: exitButton
 }, action) {
-
+  console.log("login redusor");
   return state
 }

@@ -65,7 +65,7 @@ class Home extends Component {
     return (
       <div className="map">
         <UserForm/>
-        {/*<CreateEvent/>*/}
+        <CreateEvent lat={55} lng={55}/>
         <GoogleMap/>
 {/*<Filter/>*/}
       </div>

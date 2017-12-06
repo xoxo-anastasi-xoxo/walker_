@@ -1,4 +1,4 @@
-const TOTAL_COUNT = 50;
+const TOTAL_COUNT = 500;
 
 export const susolvkaCoords = { lat: 55.756429, lng: 37.607753 };
 

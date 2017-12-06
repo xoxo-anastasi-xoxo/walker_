@@ -5,10 +5,14 @@
 .list__title {
   display: flex;
   justify-content: space-between;
-  border-bottom: 3px solid #2196F3;
+  border-bottom: 3px solid rgba(33, 150, 243, 0.3);
 }
 .list__title:hover {
   background-color: rgba(0, 0, 0, 0.05);
+  border-bottom: 3px solid rgba(33, 150, 243, 0.9);
+}
+.list__title:hover .list__title__img {
+  opacity: 0.9;
 }
 .list__title__text {
   margin: 0 10px;
@@ -17,6 +21,7 @@
   margin: 0 10px;
   width: 30px;
   height: 30px;
+  opacity: 0.2;
 }
 .list__item {
   color: black;
