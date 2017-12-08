@@ -24,7 +24,7 @@ export class GoogleMap extends React.PureComponent {
   // eslint-disable-line react/prefer-stateless-function
   state = {
     mapOptions: {
-      center: this.props.user.center,
+      center: MAP.defaultCenter,
       zoom: MAP.defaultZoom,
     },
     clusters: [],
@@ -81,7 +81,7 @@ export class GoogleMap extends React.PureComponent {
             this.createClusters(this.props);
           }}
           defaultZoom={MAP.defaultZoom}
-          defaultCenter={this.props.user.center}
+          defaultCenter={MAP.defaultCenter}
           options={MAP.options}
           onChange={this.handleMapChange}
           yesIWantToUseGoogleMapApiInternals
