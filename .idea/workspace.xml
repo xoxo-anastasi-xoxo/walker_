@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="67e2f691-2f19-458c-99cd-45716f76bbe9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Map/GoogleMap/index.js" afterPath="$PROJECT_DIR$/src/components/Map/GoogleMap/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Map/fakeData.js" afterPath="$PROJECT_DIR$/src/components/Map/fakeData.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/reducers/login.js" afterPath="$PROJECT_DIR$/src/reducers/login.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -43,17 +40,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="login.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/reducers/login.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
-              <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+              <caret line="7" column="31" lean-forward="true" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fakeData.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="fakeData.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Map/fakeData.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -203,8 +200,8 @@
         <option value="$PROJECT_DIR$/src/components/List/ListItem.js" />
         <option value="$PROJECT_DIR$/src/components/User/UserAvatar/UserAvatar.less" />
         <option value="$PROJECT_DIR$/src/components/Map/GoogleMap/index.js" />
-        <option value="$PROJECT_DIR$/src/reducers/login.js" />
         <option value="$PROJECT_DIR$/src/components/Map/fakeData.js" />
+        <option value="$PROJECT_DIR$/src/reducers/login.js" />
       </list>
     </option>
   </component>
@@ -219,7 +216,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="672" />
     <option name="width" value="697" />
     <option name="height" value="735" />
@@ -423,7 +420,7 @@
       <workItem from="1512258102964" duration="8540000" />
       <workItem from="1512293555785" duration="22666000" />
       <workItem from="1512404292907" duration="28901000" />
-      <workItem from="1512630795815" duration="13296000" />
+      <workItem from="1512630795815" duration="13423000" />
     </task>
     <servers />
   </component>
@@ -433,10 +430,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="225768000" />
+    <option name="totallyTimeSpent" value="225895000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24377745" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -895,18 +892,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/reducers/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Map/fakeData.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="23" lean-forward="false" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reducers/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="31" lean-forward="true" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
           <folding />
         </state>
       </provider>
