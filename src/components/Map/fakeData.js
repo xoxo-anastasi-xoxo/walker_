@@ -1,4 +1,4 @@
-const TOTAL_COUNT = 5;
+const TOTAL_COUNT = 559;
 
 export const susolvkaCoords = { lat: 55.756429, lng: 37.607753 };
 
@@ -47,14 +47,14 @@ export const markersData3 = [...Array(TOTAL_COUNT)]
     id: index + 100,
     lat:
     55 +
-    0.01 *
+    0.1 *
     index *
     Math.sin(30 * Math.PI * index / 180) *
     Math.cos(50 * Math.PI * index / 180) +
     Math.sin(5 * index / 180),
     lng:
     55 +
-    0.01 *
+    0.1 *
     index *
     Math.cos(70 + 23 * Math.PI * index / 180) *
     Math.cos(50 * Math.PI * index / 280) +

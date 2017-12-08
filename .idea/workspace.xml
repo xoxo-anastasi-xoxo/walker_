@@ -2,45 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="67e2f691-2f19-458c-99cd-45716f76bbe9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/Header/Header.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/Header/Header.less" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/reducers/page" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Event/CreateEvent/CreateEvent.css" afterPath="$PROJECT_DIR$/src/components/Event/CreateEvent/CreateEvent.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Event/CreateEvent/CreateEvent.js" afterPath="$PROJECT_DIR$/src/components/Event/CreateEvent/CreateEvent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Event/CreateEvent/CreateEvent.less" afterPath="$PROJECT_DIR$/src/components/Event/CreateEvent/CreateEvent.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Event/CreateEvent/FormField/FormField.css" afterPath="$PROJECT_DIR$/src/components/Event/CreateEvent/FormField/FormField.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Event/CreateEvent/FormText/FormText.css" afterPath="$PROJECT_DIR$/src/components/Event/CreateEvent/FormText/FormText.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/List/List.js" afterPath="$PROJECT_DIR$/src/components/List/List.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/List/ListItem.js" afterPath="$PROJECT_DIR$/src/components/List/ListItem.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/LogIn/SocialNetwork/SocialNetwork.css" afterPath="$PROJECT_DIR$/src/components/LogIn/SocialNetwork/SocialNetwork.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/LogIn/SocialNetwork/SocialNetwork.css.map" afterPath="$PROJECT_DIR$/src/components/LogIn/SocialNetwork/SocialNetwork.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/LogIn/SocialNetwork/SocialNetwork.less" afterPath="$PROJECT_DIR$/src/components/LogIn/SocialNetwork/SocialNetwork.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/LogIn/SocialNetworkList/SocialNetworkList.css" afterPath="$PROJECT_DIR$/src/components/LogIn/SocialNetworkList/SocialNetworkList.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/LogIn/SocialNetworkList/SocialNetworkList.css.map" afterPath="$PROJECT_DIR$/src/components/LogIn/SocialNetworkList/SocialNetworkList.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/LogIn/SocialNetworkList/SocialNetworkList.less" afterPath="$PROJECT_DIR$/src/components/LogIn/SocialNetworkList/SocialNetworkList.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Map/GoogleMap/index.js" afterPath="$PROJECT_DIR$/src/components/Map/GoogleMap/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Map/Marker/index.js" afterPath="$PROJECT_DIR$/src/components/Map/Marker/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Map/Spy.js" afterPath="$PROJECT_DIR$/src/components/Map/Spy.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Map/fakeData.js" afterPath="$PROJECT_DIR$/src/components/Map/fakeData.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/User/UserCard/UserCard.css" afterPath="$PROJECT_DIR$/src/components/User/UserCard/UserCard.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/User/UserCard/UserCard.css.map" afterPath="$PROJECT_DIR$/src/components/User/UserCard/UserCard.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/User/UserCard/UserCard.less" afterPath="$PROJECT_DIR$/src/components/User/UserCard/UserCard.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/User/UserForm/UserForm.css" afterPath="$PROJECT_DIR$/src/components/User/UserForm/UserForm.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/User/UserForm/UserForm.css.map" afterPath="$PROJECT_DIR$/src/components/User/UserForm/UserForm.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/User/UserForm/UserForm.js" afterPath="$PROJECT_DIR$/src/components/User/UserForm/UserForm.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/User/UserForm/UserForm.less" afterPath="$PROJECT_DIR$/src/components/User/UserForm/UserForm.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.css" afterPath="$PROJECT_DIR$/src/index.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.css.map" afterPath="$PROJECT_DIR$/src/index.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.less" afterPath="$PROJECT_DIR$/src/index.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/Home.js" afterPath="$PROJECT_DIR$/src/pages/Home.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/Home.less" afterPath="$PROJECT_DIR$/src/pages/Home.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/LogIn/LogIn.css" afterPath="$PROJECT_DIR$/src/pages/LogIn/LogIn.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/LogIn/LogIn.css.map" afterPath="$PROJECT_DIR$/src/pages/LogIn/LogIn.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/LogIn/LogIn.js" afterPath="$PROJECT_DIR$/src/pages/LogIn/LogIn.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pages/LogIn/LogIn.less" afterPath="$PROJECT_DIR$/src/pages/LogIn/LogIn.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/reducers/index.js" afterPath="$PROJECT_DIR$/src/reducers/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/reducers/user.js" afterPath="$PROJECT_DIR$/src/reducers/user.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -78,7 +40,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/reducers/login.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
@@ -88,11 +50,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fakeData.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="fakeData.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Map/fakeData.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="63" lean-forward="true" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="63" />
+            <state relative-caret-position="0">
+              <caret line="0" column="22" lean-forward="false" selection-start-line="0" selection-start-column="22" selection-end-line="0" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -238,7 +200,6 @@
         <option value="$PROJECT_DIR$/src/components/Map/Marker/index.js" />
         <option value="$PROJECT_DIR$/src/components/Map/Spy.js" />
         <option value="$PROJECT_DIR$/src/components/Event/CreateEvent/CreateEvent.js" />
-        <option value="$PROJECT_DIR$/src/components/Map/fakeData.js" />
         <option value="$PROJECT_DIR$/src/reducers/index.js" />
         <option value="$PROJECT_DIR$/src/components/Map/GoogleMap/index.js" />
         <option value="$PROJECT_DIR$/src/components/User/UserForm/UserForm.js" />
@@ -246,6 +207,7 @@
         <option value="$PROJECT_DIR$/src/reducers/user.js" />
         <option value="$PROJECT_DIR$/src/components/List/ListItem.js" />
         <option value="$PROJECT_DIR$/src/reducers/login.js" />
+        <option value="$PROJECT_DIR$/src/components/Map/fakeData.js" />
       </list>
     </option>
   </component>
@@ -471,7 +433,7 @@
       <workItem from="1512258102964" duration="8540000" />
       <workItem from="1512293555785" duration="22666000" />
       <workItem from="1512404292907" duration="28901000" />
-      <workItem from="1512630795815" duration="11266000" />
+      <workItem from="1512630795815" duration="11846000" />
     </task>
     <servers />
   </component>
@@ -481,7 +443,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="223738000" />
+    <option name="totallyTimeSpent" value="224318000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -869,14 +831,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Map/fakeData.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="63" lean-forward="true" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/User/UserForm/UserForm.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="423">
@@ -947,6 +901,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Map/fakeData.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="22" lean-forward="false" selection-start-line="0" selection-start-column="22" selection-end-line="0" selection-end-column="22" />
           <folding />
         </state>
       </provider>
