@@ -2,14 +2,58 @@
 
 .user_form {
   z-index: 100;
-  height: 99.3vh;
+  height: 92vh;
   margin: 0;
   position: absolute;
   //border-radius: 2%;
-  width: 260px;
+  width: 17vw;
   background: rgba(256, 256, 256, 0.7);
   //opacity: 0.7;
   //border: 5px @main_color solid;
   overflow: scroll;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+  top: 8vh;
 
+  &::-webkit-scrollbar { width: 0; }
 }
+
+//@media (max-width: 930px) {
+//  .user_form {
+//    height: 60vh;
+//    display: flex;
+//    width: 100vw;
+//    overflow: hidden;
+//    &__info {
+//      width: 29vw;
+//    }
+//    &__lists {
+//      width: 70vw;
+//      overflow: scroll;
+//      //&_item {
+//      //
+//      //  width: 35vw;
+//      //}
+//    }
+//  }
+//}
+//
+//@media (max-width: 430px) {
+//  .user_form {
+//    box-sizing: border-box;
+//    height: 60vh;
+//    display: block;
+//    width: 100vw;
+//    //overflow: hidden;
+//    background: rgba(256, 256, 256, 0.9);
+//
+//    overflow: scroll;
+//    &__info {
+//      width: 55vw;
+//    }
+//    &__lists {
+//      width: 100vw;
+//      overflow: hidden;
+//    }
+//  }
+//}

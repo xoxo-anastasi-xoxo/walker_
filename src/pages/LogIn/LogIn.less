@@ -13,6 +13,8 @@
   right: 0;
   width: 50%;
   height: 55%;
+  min-width: 326px;
+
   text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
 0px 8px 13px rgba(0,0,0,0.1),
 0px 18px 23px rgba(0,0,0,0.1);
@@ -20,20 +22,25 @@
   &__header {
     overflow: hidden;
     text-wrap: normal;
-    width: 500px;
+    box-sizing: content-box;
+    min-width: 326px;
     //height: 92px;
     font-size: 73px;
     font-family: 'Caveat', cursive;
     margin: 0 auto;
     //margin: auto;
     text-align: center;
-
   }
-
   &__tagline {
     width: 170px;
     //height: 20px;
     margin: auto;
     font-size: 15px;
+  }
+}
+
+@media (max-height: 580px) {
+  .login{
+    margin: 50px auto;
   }
 }

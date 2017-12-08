@@ -32,3 +32,11 @@
   margin-left: -24px;
   margin-right: -24px;
 }
+
+@media (max-width: 930px) {
+  .FormField {
+   width: 100vw;
+    box-sizing: border-box;
+    margin-top: 5px;
+  }
+}

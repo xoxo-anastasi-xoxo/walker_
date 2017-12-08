@@ -46,24 +46,16 @@
     top: -11px;
     vertical-align: middle;
   }
+}
 
-  //&:after {
-  //  content: attr(data-title);
-  //  display: none;
-  //  position: relative;
-  //  bottom: 130%;
-  //  left: 0px;
-  //  background-color: #fff;
-  //  color: #3aaeda;
-  //  padding: 5px;
-  //  text-align: center;
-  //  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .16);
-  //  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .16);
-  //  box-shadow: 0 1px 1px rgba(0, 0, 0, .16);
-  //  font-size: 12px;
-  //}
-  ///* Добавляем свойство, чтобы при наведении на элемент плашка с подсказкой появилась */
-  //&:hover:after {
-  //  display: block;
-  //}
+
+@media (max-width: 720px) {
+  .button {
+    width: 70px;
+    height: 70px;
+    &__image {
+      width: 68px;
+      height: 68px;
+    }
+  }
 }

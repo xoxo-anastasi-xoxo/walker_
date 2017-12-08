@@ -24,19 +24,21 @@ export class GoogleMap extends React.PureComponent {
   // eslint-disable-line react/prefer-stateless-function
   state = {
     mapOptions: {
-      center: MAP.defaultCenter,
+      center: this.props.user.center,
       zoom: MAP.defaultZoom,
     },
     clusters: [],
   };
 
   getClusters = () => {
-    const clusters = supercluster(markersData, {
+
+    let arr = markersData;
+    if (this.props.user.creatingEvent.lat) arr = arr.concat(this.props.user.creatingEvent);
+    const clusters = supercluster(arr.concat(this.props.user.eventList), {
       minZoom: 0,
       maxZoom: 16,
       radius: 60,
     });
-
     return clusters(this.state.mapOptions);
   };
 
@@ -74,20 +76,24 @@ export class GoogleMap extends React.PureComponent {
       <MapWrapper>
         <GoogleMapReact
           onClick={(obj) => {
-            console.log(obj.x, obj.y, obj.lat, obj.lng, obj.event);
-            this.props.createEvent({lat: obj.lat, lng: obj.lng})
+            // console.log(obj.x, obj.y, obj.lat, obj.lng, obj.event);
+            this.props.createEvent({lat: obj.lat, lng: obj.lng});
+            this.createClusters(this.props);
           }}
           defaultZoom={MAP.defaultZoom}
-          defaultCenter={MAP.defaultCenter}
+          defaultCenter={this.props.user.center}
           options={MAP.options}
           onChange={this.handleMapChange}
           yesIWantToUseGoogleMapApiInternals
           bootstrapURLKeys={{key: 'AIzaSyAS3ix4rVY4A-T4yPzWlEi766ycl2mY818'}}
         >
           {this.state.clusters.map(item => {
+            // console.log(item)
             if (item.numPoints === 1) {
+              console.log(item.points[0].logo)
               return (
                 <Marker
+                  logo={item.points[0].logo}
                   key={item.id}
                   lat={item.points[0].lat}
                   lng={item.points[0].lng}

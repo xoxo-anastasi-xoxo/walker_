@@ -2,6 +2,7 @@
 import {deleteCookie, getCookie} from '../cookie'
 
 export const START_CREATE_EVENT = 'START_CREATE_EVENT';
+export const CONTINUE_CREATE_EVENT = 'CONTINUE_CREATE_EVENT';
 export const UPDATE_DATE = 'UPDATE_DATE';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
@@ -9,9 +10,11 @@ export const LOAD_COOKIE = 'LOAD_COOKIE';
 export const LOAD_FRIEND = 'LOAD_FRIEND';
 export const CREATE_EVENT = 'CREATE_EVENT';
 export const PREVENT_CREATING = 'PREVENT_CREATING';
+export const CHANGE_CENTER='CHANGE_CENTER'
 
 
 const currentUser = {
+  center: { lat: 55.756429, lng: 37.607753 },
   valid: false,
   access_token: undefined,
   id: undefined,
@@ -25,6 +28,7 @@ const currentUser = {
   birthday: "",
   groupList: [],
   eventList: [{
+    id: 10000009,
     lat: 55,
     lng: 55,
     date: undefined,
@@ -34,6 +38,7 @@ const currentUser = {
     mode: "",
     participants: []
   }, {
+    id: 78954345,
     lat: 56,
     lng: 55,
     date: undefined,
@@ -43,6 +48,7 @@ const currentUser = {
     mode: "",
     participants: []
   }, {
+    id: 9998888654,
     lat: 55,
     lng: 57,
     date: undefined,
@@ -52,6 +58,7 @@ const currentUser = {
     mode: "",
     participants: []
   }, {
+    id: 87643114,
     lat: 54,
     lng: 55,
     date: undefined,
@@ -63,6 +70,7 @@ const currentUser = {
   }],
   friendList: [],
   creatingEvent: {
+    id: Math.random(),
     logo: undefined,
     lat: undefined,
     lng: undefined,
@@ -85,18 +93,30 @@ export default function user(state = currentUser, action) {
       newState.ava = action.info.photo_200;
       newState.valid = true;
 
-      // console.log("action.info");
-      // console.log(action.info);
-      console.log("я закончиваю сс");
 
       return newState;
+    case CHANGE_CENTER:
+      newState = {...state};
+      // console.log(newState.eventList[parseInt(action.id)]);
+      newState.center.lat = newState.eventList[action.id].lat;
+      newState.center.lng = newState.eventList[action.id].lng;
+      console.log("CHANGE_CENTER");
+      console.log(action);
 
+
+      return newState;
     case START_CREATE_EVENT:
       newState = {...state};
       newState.creatingEvent.lat = action.data.lat;
       newState.creatingEvent.lng = action.data.lng;
       newState.isCreating = true;
-      console.log(newState);
+      // console.log(newState);
+
+      return newState;
+
+    case CONTINUE_CREATE_EVENT:
+      newState = {...state};
+      newState.creatingEvent.logo = action.data.logo;
 
       return newState;
 
@@ -115,8 +135,6 @@ export default function user(state = currentUser, action) {
 
     case CREATE_EVENT:
       newState = {...state};
-      console.log(newState);
-      console.log(action.data);
 
       newState.creatingEvent.name
         = action.data.name;
@@ -130,7 +148,6 @@ export default function user(state = currentUser, action) {
         ...newState.creatingEvent, mode: "",
         participants: []
       }];
-      console.log(newState.eventList);
       return newState;
 
     case UPDATE_DATE:
@@ -139,8 +156,6 @@ export default function user(state = currentUser, action) {
       return newState;
 
     case LOAD_FRIEND:
-      console.log("list:");
-      console.log(action.list);
       return {...state, friendList: action.list};
 
     case LOAD_COOKIE:
@@ -148,9 +163,6 @@ export default function user(state = currentUser, action) {
 
 
     case LOGIN_FAIL:
-      console.log("login fail");
-      console.log(state.name);
-
       newState = {...state};
       deleteCookie("user_id");
       deleteCookie("access_token");

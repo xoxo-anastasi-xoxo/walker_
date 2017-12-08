@@ -35,3 +35,13 @@
   top: -11px;
   vertical-align: middle;
 }
+@media (max-width: 720px) {
+  .button {
+    width: 70px;
+    height: 70px;
+  }
+  .button__image {
+    width: 68px;
+    height: 68px;
+  }
+}

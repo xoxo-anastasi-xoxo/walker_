@@ -59,7 +59,7 @@ class LogIn extends Component {
     console.log(this.props.user.access_token);
     return (
       <div className="login">
-        <h1 className="login__header">Hi,&nbsp;I'm&nbsp;Walker!</h1>
+        <h1 className="login__header">Hi, I'm&nbsp;Walker!</h1>
         <p className="login__tagline">Let's&nbsp;go&nbsp;with&nbsp;me!</p>
         {this.props.user.valid ? <UserCard/> : <SocialNetworkList/>}
       </div>

@@ -18,6 +18,7 @@ class CreateEvent extends React.Component {
     super(props);
 
     let image = "/img/events/RoundIcons_FreeSet-" + (Math.floor(Math.random() * (60 + 1))) + ".svg";
+    props.updateEvent({logo: image});
     this.state = {
       title: '',
       description: '',
@@ -58,14 +59,16 @@ this.props.create({
   };
 
   handleInputChange = (event) => {
+    this.props.updateEvent({logo: this.state.image});
+
     this.setState({
       [event.target.name]: event.target.value
     });
   };
 
   render() {
-    console.log("state:");
-    console.log(this.state);
+    // console.log("state:");
+    // console.log(this.state);
     return (<div className="create-event-form">
       <img onClick={()=> this.props.exit()} className="create-event-form__exit" alt="Закрыть" src="/img/exit.svg"/>
       <h2>Создать событие</h2>
@@ -110,6 +113,10 @@ const mapDispatchToProps = dispatch => ({
   }),
   exit: () => dispatch({
     type: 'PREVENT_CREATING'
+  }),
+  updateEvent: (data) => dispatch({
+    type: 'CONTINUE_CREATE_EVENT',
+    data: data
   })
 });
 

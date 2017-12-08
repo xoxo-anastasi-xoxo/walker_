@@ -37,12 +37,6 @@ class List extends Component {
         >
           <h3 className="list__title__text">{this.props.title}</h3>
           <img style={imgStyle}
-               // onMouseOver={this.style = {
-               //   opacity: 0.9
-               // }}
-               // onMouseOut={this.style={
-               //   opacity: 0.3
-               // }}
                className="list__title__img"
                alt={"V"}
                src="/img/v.svg"/>
@@ -50,10 +44,10 @@ class List extends Component {
         {
           this.props.list.map((key, index) => {
             if (this.state.flag) return (
-              <ListItem style={myStyle2} key={index} name={key.name} ava={key.ava}/>)
+              <ListItem style={myStyle2} key={index} index={index} name={key.name} ava={key.ava}/>)
             else
               return (
-                <ListItem style={myStyle} key={index} name={key.name} ava={key.ava}/>)
+                <ListItem style={myStyle} key={index} index={index} name={key.name} ava={key.ava}/>)
           })
         }
       </div>

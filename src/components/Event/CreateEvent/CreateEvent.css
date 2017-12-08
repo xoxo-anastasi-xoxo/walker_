@@ -6,7 +6,7 @@
   left: calc(41vw);
   border-radius: 10%;
   background: rgba(255, 255, 255, 0.9);
-  top: 30px;
+  top: 12vh;
 }
 .create-event-form__exit {
   opacity: 0.5;

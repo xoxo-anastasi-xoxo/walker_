@@ -3,6 +3,8 @@ import GoogleMap from '../components/Map/GoogleMap'
 import './Home.css'
 import Filter from '../components/Filter/FilterList/FilferList'
 import UserForm from "../components/User/UserForm/UserForm"
+import Header from '../components/Header/Header'
+
 import CreateEvent from "../components/Event/CreateEvent/CreateEvent"
 import {connect} from 'react-redux'
 
@@ -68,9 +70,11 @@ class Home extends Component {
     // console.log("cookie:");
     return (
       <div className="map">
+        <Header/>
         <UserForm/>
-        { (this.props.user.isCreating)? <CreateEvent lat={this.props.user.creatingEvent.lat} lng={this.props.user.creatingEvent.lng}/> : ""}
         <GoogleMap/>
+        { (this.props.user.isCreating)? <CreateEvent lat={this.props.user.creatingEvent.lat} lng={this.props.user.creatingEvent.lng}/> : ""}
+
         {/*<Filter/>*/}
       </div>
     );
